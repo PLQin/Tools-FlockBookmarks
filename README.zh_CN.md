@@ -30,7 +30,6 @@
 
 </div>
 
-[![](https://cdn-images-1.medium.com/max/2000/1*NIlj0-TdLMbo_hzSBP8tmg.png)](http://ant.design)
 
 [English](./README.md) | 简体中文
 
