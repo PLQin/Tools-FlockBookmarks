@@ -31,7 +31,7 @@ share bookmark
 </div>
 
 
-English | [简体中文](./README-zh_CN.md)
+English | [简体中文](https://github.com/PLQin/Tools-FlockBookmarks/blob/master/README.zh_CN.md)
 
 ## ✨ Features
 

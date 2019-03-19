@@ -31,7 +31,7 @@
 </div>
 
 
-[English](./README.md) | 简体中文
+[English](https://github.com/PLQin/Tools-FlockBookmarks) | 简体中文
 
 ## ✨ 特点
 
