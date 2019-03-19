@@ -10,7 +10,11 @@
 共享书签
 </div>
 
+
+
 <div align="center"> 
+
+<br/>
 
 [![Build Status](https://dev.azure.com/ant-design/ant-design/_apis/build/status/ant-design.ant-design?branchName=master)](https://dev.azure.com/ant-design/ant-design/_build/latest?definitionId=2?branchName=master)
 [![CircleCI branch](https://img.shields.io/circleci/project/github/ant-design/ant-design/master.svg?style=flat-square)](https://circleci.com/gh/ant-design/ant-design)
