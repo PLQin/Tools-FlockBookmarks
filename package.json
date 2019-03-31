@@ -50,14 +50,14 @@
   },
   "betterScripts": {
     "compile": {
-      "command": "node server/compiler",
+      "command": "node server/compiler.ts",
       "env": {
         "NODE_ENV": "production",
         "DEBUG": "app:*"
       }
     },
     "start:dev": {
-      "command": "node server/server",
+      "command": "node server/server.ts",
       "env": {
         "NODE_ENV": "development",
         "DEBUG": "app:*"

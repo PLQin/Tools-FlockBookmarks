@@ -10,6 +10,8 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const debug = require('debug')('app:webpack:config');
 
+console.log(path.resolve(__dirname, '/'));
+console.log(__dirname);
 // ------------------------------------
 // RULES INJECTION!
 // ------------------------------------
@@ -134,7 +136,7 @@ const stagePlugins = {
   test: [new BundleAnalyzerPlugin()],
   development: [
     new HtmlWebpackPlugin({
-      template: path.resolve('./src/index.html'),
+      template: path.resolve('./public/index.html'),
       filename: 'index.html',
       inject: 'body',
       minify: false,
@@ -149,7 +151,7 @@ const stagePlugins = {
       chunkFilename: '[name].[hash].css'
     }),
     new HtmlWebpackPlugin({
-      template: path.resolve('./src/index.html'),
+      template: path.resolve('./public/index.html'),
       filename: 'index.html',
       inject: 'body',
       minify: {
