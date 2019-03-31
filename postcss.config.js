@@ -3,6 +3,6 @@ module.exports = {
     'postcss-import': {},
     'postcss-cssnext': {},
     'postcss-preset-env': {},
-    cssnano: {}
+    'cssnano': {}
   }
 };
