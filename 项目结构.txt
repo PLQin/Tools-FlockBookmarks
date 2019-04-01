@@ -1,0 +1,15 @@
+﻿src
+  component    // 公共组件库
+  controller   // 用于存放项目中的全局的 rootStore, rootActive, rootReduce
+  constants    // 用于存放项目中使用的到的常量 e.g: active.type
+  assets       // 用于存放项目中的会用的样式文件, 媒体文件等
+    style
+    sass
+    less
+    images
+  config        // 项目中的使用的配置文件  e.g  
+  containers    // 项目编写内容
+  modules       // 用于存放项目中的中间件文件, 拆分出来的active, reduce 
+  view          // 页面文件
+  request       // 放置项目的请求文件
+public        // 页面文件存放处
