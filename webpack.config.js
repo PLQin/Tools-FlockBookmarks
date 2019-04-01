@@ -162,7 +162,7 @@ const stagePlugins = {
 // ------------------------------------
 // STAGE CONFIGURATION INJECTION! [DEVELOPMENT, PRODUCTION]
 // ------------------------------------
-let stageConfig = {
+const stageConfig = {
   test: {
     devtool: 'source-map',
     stats: {
