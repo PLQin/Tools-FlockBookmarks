@@ -9,9 +9,6 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const debug = require('debug')('app:webpack:config');
-
-console.log(path.resolve(__dirname, '/'));
-console.log(__dirname);
 // ------------------------------------
 // RULES INJECTION!
 // ------------------------------------
@@ -165,7 +162,7 @@ const stagePlugins = {
 // ------------------------------------
 // STAGE CONFIGURATION INJECTION! [DEVELOPMENT, PRODUCTION]
 // ------------------------------------
-const stageConfig = {
+let stageConfig = {
   test: {
     devtool: 'source-map',
     stats: {
@@ -195,21 +192,18 @@ const stageConfig = {
 const createConfig = () => {
   debug('Creating configuration.');
   debug(`Enabling devtools for '${__NODE_ENV__} Mode!'`);
+  const { devtool, stats } = stageConfig[__NODE_ENV__];
 
   const webpackConfig = {
     mode: __DEV__ ? 'development' : 'production',
     name: 'client',
     target: 'web',
-    devtool: stageConfig[__NODE_ENV__].devtool,
-    stats: stageConfig[__NODE_ENV__].stats,
+    devtool,
+    stats,
     module: {
       rules: [...rules]
     },
-    ...optimization,
-    resolve: {
-      modules: ['node_modules'],
-      extensions: ['.ts', '.tsx', '.js', '.jsx', '.json']
-    }
+    ...optimization
   };
 
   // ------------------------------------
@@ -219,6 +213,16 @@ const createConfig = () => {
     app: ['babel-polyfill', path.resolve(__dirname, 'src/index.js')].concat(
       'webpack-hot-middleware/client?path=/__webpack_hmr'
     )
+  };
+
+  webpackConfig.resolve = {
+    modules: ['node_modules'],
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
+    alias: {
+      '@src': path.join(__dirname, './src'),
+      '@config': path.join(__dirname, './src/config'),
+      '@component': path.join(__dirname, './src/component')
+    }
   };
 
   // ------------------------------------
