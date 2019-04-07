@@ -1,14 +1,14 @@
 // import global vars for a whole app
-require( '../globals' );
+require('../globals');
 
-const path = require( 'path' );
-const browserSync = require( 'browser-sync' );
-const historyApiFallback = require( 'connect-history-api-fallback' );
-const webpack = require( 'webpack' );
-const webpackDevMiddleware = require( 'webpack-dev-middleware' );
-const webpackHotMiddleware = require( 'webpack-hot-middleware' );
-const webpackConfig = require( '../webpack.config.js' );
-const bundler = webpack( webpackConfig );
+const path = require('path');
+const browserSync = require('browser-sync');
+const historyApiFallback = require('connect-history-api-fallback');
+const webpack = require('webpack');
+const webpackDevMiddleware = require('webpack-dev-middleware');
+const webpackHotMiddleware = require('webpack-hot-middleware');
+const webpackConfig = require('../webpack.config.js');
+const bundler = webpack(webpackConfig);
 
 // ========================================================
 // WEBPACK MIDDLEWARE CONFIGURATION
@@ -22,19 +22,19 @@ const devMiddlewareOptions = {
 // ========================================================
 // Server Configuration
 // ========================================================
-browserSync( {
-  open: false,
+browserSync({
+  open: true,
   ghostMode: {
     clicks: false,
     forms: false,
     scroll: true
   },
   server: {
-    baseDir: path.resolve( __dirname, '../src' ),
+    baseDir: path.resolve(__dirname, '../src'),
     middleware: [
       historyApiFallback(),
-      webpackDevMiddleware( bundler, devMiddlewareOptions ),
-      webpackHotMiddleware( bundler )
+      webpackDevMiddleware(bundler, devMiddlewareOptions),
+      webpackHotMiddleware(bundler)
     ]
   },
   files: [
@@ -46,4 +46,4 @@ browserSync( {
     'src/../*.scss',
     'src/../*.html'
   ]
-} );
+});

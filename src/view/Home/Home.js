@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import { Search } from '@component';
 
+import style from '../../assets/scss/index.scss';
+
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -9,7 +11,7 @@ class Home extends Component {
 
   render() {
     return (
-      <div>
+      <div className={style.home_page}>
         <Search />
       </div>
     );

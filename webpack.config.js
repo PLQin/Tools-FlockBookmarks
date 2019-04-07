@@ -221,7 +221,13 @@ const createConfig = () => {
     alias: {
       '@src': path.join(__dirname, './src'),
       '@config': path.join(__dirname, './src/config'),
-      '@component': path.join(__dirname, './src/component')
+      '@component': path.join(__dirname, './src/component'),
+      '@constants': path.join(__dirname, './src/constants'),
+      '@containers': path.join(__dirname, './src/containers'),
+      '@controller': path.join(__dirname, './src/controller'),
+      '@request': path.join(__dirname, './src/request'),
+      '@view': path.join(__dirname, './src/view'),
+      '@assets': path.join(__dirname, './src/assets')
     }
   };
 

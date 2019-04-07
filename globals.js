@@ -1,4 +1,4 @@
-// global variables for webpack and app hot-reload. Make them work more easly.
+// 用来放置项目开发环境
 global.__TEST__ = process.env.NODE_ENV === 'test';
 global.__DEV__ = process.env.NODE_ENV === 'development';
 global.__PROD__ = process.env.NODE_ENV === 'production';

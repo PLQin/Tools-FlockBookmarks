@@ -50,14 +50,14 @@
   },
   "betterScripts": {
     "compile": {
-      "command": "node server/compiler.ts",
+      "command": "node server/compiler.js",
       "env": {
         "NODE_ENV": "production",
         "DEBUG": "app:*"
       }
     },
     "start:dev": {
-      "command": "node server/server.ts",
+      "command": "node server/server.js",
       "env": {
         "NODE_ENV": "development",
         "DEBUG": "app:*"
@@ -163,6 +163,7 @@
     "@babel/preset-stage-3": "^7.0.0",
     "@babel/preset-typescript": "^7.1.0",
     "awesome-typescript-loader": "^5.2.1",
+    "axios": "^0.18.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^24.1.0",
     "babel-loader": "^8.0.5",
@@ -176,8 +177,8 @@
     "connected-react-router": "^6.1.0",
     "debug": "^4.1.1",
     "enzyme-adapter-react-16": "^1.10.0",
-    "eslint-loader": "^2.1.1",
     "eslint-import-resolver-webpack": "^0.11.0",
+    "eslint-loader": "^2.1.1",
     "exports-loader": "^0.7.0",
     "history": "^4.7.2",
     "html-loader": "^0.5.5",
