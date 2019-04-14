@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import * as searchXHR from '@config/xhr.js';
 
-axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+// axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 const searchList = value => {
   // console.log(searchXHR['baidu']);
@@ -16,11 +16,7 @@ const searchList = value => {
   };
 
   axios
-    .get(search.url, {
-      params: {
-        [searchXHRValue[value.search.en.toLocaleLowerCase()].params]: value.value
-      }
-    })
+    .get('http://localhost:3000/api/tasks')
     .then(res => {
       console.log(res);
     })

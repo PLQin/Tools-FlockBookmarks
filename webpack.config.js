@@ -3,12 +3,18 @@ require('./globals');
 
 const path = require('path');
 const webpack = require('webpack');
+const WebpackDevServer = require('webpack-dev-server');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const debug = require('debug')('app:webpack:config');
+// const configs = require('./globals');
+
+// console.log(__NODE_ENV__);
+
+// const __NODE_ENV__ = 'development';
 // ------------------------------------
 // RULES INJECTION!
 // ------------------------------------
@@ -247,6 +253,34 @@ const createConfig = () => {
     chunkFilename: '[name].[hash].js',
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/'
+  };
+
+  webpackConfig.devServer = {
+    // historyApiFallback: true,
+    // contentBase: './public',
+    // quiet: false, // 控制台中不输出打包的信息
+    // hot: true, // 开启热点
+    // inline: true, // 开启页面自动刷新
+    port: 3000,
+    public: 'http://localhost:3000',
+    publicPath: '/',
+
+    proxy: {
+      '/efg/**': {
+        target: 'https://www.baidu.com',
+        pathRewrite: { '^/efg': '' },
+        changeOrigin: true,
+        secure: false
+      },
+      '/csdn': {
+        target: 'https://blog.csdn.net',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/csdn': '/'
+        }
+      }
+
+    }
   };
 
   // ------------------------------------

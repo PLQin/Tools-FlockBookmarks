@@ -5,25 +5,35 @@ const path = require('path');
 const browserSync = require('browser-sync');
 const historyApiFallback = require('connect-history-api-fallback');
 const webpack = require('webpack');
+const WebpackDevServer = require('webpack-dev-server');
+const proxy = require('http-proxy-middleware');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const webpackConfig = require('../webpack.config.js');
 const bundler = webpack(webpackConfig);
+// const proxyMiddleware = proxy(
+//   '/api',
+//   {
+//     target: 'https://www.baidu.com/',
+//     changeOrigin: true
+//   }
+// );
 
 // ========================================================
 // WEBPACK MIDDLEWARE CONFIGURATION
 // ========================================================
+
 const devMiddlewareOptions = {
-  publicPath: webpackConfig.output.publicPath,
-  hot: true,
-  headers: { 'Access-Control-Allow-Origin': '*' }
+  // publicPath: webpackConfig.output.publicPath,
+  // hot: true,
+  // headers: { 'Access-Control-Allow-Origin': '*' }
 };
 
 // ========================================================
 // Server Configuration
 // ========================================================
 browserSync({
-  open: true,
+  open: false,
   ghostMode: {
     clicks: false,
     forms: false,
@@ -32,9 +42,9 @@ browserSync({
   server: {
     baseDir: path.resolve(__dirname, '../src'),
     middleware: [
-      historyApiFallback(),
-      webpackDevMiddleware(bundler, devMiddlewareOptions),
-      webpackHotMiddleware(bundler)
+      // historyApiFallback(),
+      webpackDevMiddleware(bundler)
+      // webpackHotMiddleware(bundler)
     ]
   },
   files: [
